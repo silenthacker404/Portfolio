@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shantanu Yadav Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#00d8ff',
+                        'secondary': '#1e1e2f',
+                        'bg-dark': '#121212',
+                        'text-light': '#e0e0e0',
+                        'text-gray': '#ccc',
+                        'blue-glow': '#a0eaff',
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.6' },
+                            '50%': { transform: 'scale(1.2)', opacity: '0.9' },
+                        },
+                        outlineGlow: {
+                            '0%': { borderColor: '#00d8ff', filter: 'drop-shadow(0 0 10px #00d8ff)' },
+                            '100%': { borderColor: '#00a8cc', filter: 'drop-shadow(0 0 20px #00a8cc)' },
+                        },
+                        jiggle: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(5deg)' },
+                            '75%': { transform: 'rotate(-5deg)' },
+                        }
+                    },
+                    animation: {
+                        pulse: 'pulse 2s ease-in-out infinite',
+                        outlineGlow: 'outlineGlow 3s ease-in-out infinite alternate',
+                        jiggle: 'jiggle 0.5s ease infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bg-dark text-text-light scroll-smooth">
+
+<nav class="fixed top-0 w-full bg-secondary py-2 px-6 flex justify-between md:justify-end items-center z-[1000] shadow-md">
+    <button id="menu-toggle" class="md:hidden bg-transparent border-none text-2xl text-text-gray cursor-pointer">
+        ☰
+    </button>
+    
+    <div id="nav-links" class="hidden md:flex flex-col md:flex-row gap-2 md:gap-8 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-secondary md:bg-transparent shadow-md md:shadow-none">
+        <button id="nav-hero" onclick="scrollToSection('hero')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Home</button>
+        <button id="nav-about" onclick="scrollToSection('about')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">About</button>
+        <button id="nav-projects" onclick="scrollToSection('projects')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Projects</button>
+        <button id="nav-education" onclick="scrollToSection('education')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Education</button>
+        <button id="nav-certifications" onclick="scrollToSection('certifications')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Certifications</button>
+        <button id="nav-achievements" onclick="scrollToSection('achievements')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Achievements</button>
+        <button id="nav-contact" onclick="scrollToSection('contact')" class="nav-button bg-transparent text-text-gray font-semibold py-2 px-4 rounded-full transition-colors hover:bg-primary hover:text-secondary">Contact</button>
+    </div>
+</nav>
+
+<main>
+<section id="hero" class="min-h-screen w-full flex flex-col items-center justify-center text-center relative overflow-hidden px-6 pt-32 md:pt-20">
+    <h1 id="main-heading" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-primary font-bold drop-shadow-[0_0_10px_rgba(0,216,255,0.5)]">
+        Shantanu Yadav - B.Tech Computer Science Student</h1>
+    <p class="text-lg sm:text-xl md:text-2xl min-h-[2rem] mt-4 mb-8 text-blue-glow italic max-w-2xl min-w-[300px]">
+        <span id="hero-subtitle"></span>
+    </p>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8 cursor-pointer">
+            <div class="flex flex-wrap justify-center gap-6 md:gap-20">
+        <a href="https://drive.google.com/file/d/12Rq2WyORykxJSMquzolnvSXMrdeCK1z_/view?usp=drive_link" download id="resume-button" class="fixed bottom-4 right-4 bg-primary text-secondary font-bold py-3 px-6 rounded-full transition-all duration-300 hover:bg-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 cursor-pointer z-50 md:bottom-8 md:right-8">
+    View Resume
+</a>
+</div>
+    </div>
+        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[130%] bg-[radial-gradient(circle_at_center,_#00ffd933_0%,_transparent_50%)] animate-pulse z-0 blur-[50px]"></div>
+        <div id="scroll-arrow" class="absolute bottom-10 animate-bounce cursor-pointer z-10 hidden md:block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+</div>
+    </section>
+
+    <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center max-w-5xl mx-auto py-16">
+    <div class="relative w-[250px] h-[250px] mx-auto rounded-full overflow-visible filter drop-shadow-[0_0_10px_#00d8ffaa]">
+        <img src="img/23.jpg" alt="Shantanu Yadav" class="w-full h-full object-cover rounded-full border-4 border-transparent relative z-10 transition-transform duration-300 hover:scale-105" />
+        <div class="absolute -top-3 -left-3 w-[calc(100%+24px)] h-[calc(100%+24px)] rounded-full border-4 border-primary filter drop-shadow-[0_0_10px_#00d8ff] animate-outlineGlow z-0"></div>
+    </div>
+    <div class="md:col-span-2 text-text-gray md:text-left text-center mt-8 md:mt-0">
+        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+        <p>I’m a Third-Year B.Tech student in Computer Science with a focus on Artificial Intelligence and Machine Learning. I’ve learned SQL, Java, Python, HTML, and CSS, and I’m building my skills in full-stack development and problem-solving. I’m seeking to gain real-world experience and advance my skills as a software developer.</p>
+        <div class="mt-6">
+            <div class="mb-4">
+                <h4 class="text-xl font-bold text-primary mb-2">Programming Languages</h4>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Python</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Java</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">C</span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <h4 class="text-xl font-bold text-primary mb-2">Web Technologies</h4>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">HTML</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">CSS</span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <h4 class="text-xl font-bold text-primary mb-2">Databases</h4>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">MySQL</span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <h4 class="text-xl font-bold text-primary mb-2">Tools & Frameworks</h4>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Git</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Pytorch</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Tensorflow</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-primary mb-2">Soft Skills</h4>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Teamwork</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Communication</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Problem-Solving</span>
+                    <span class="bg-secondary py-2 px-4 rounded-full text-blue-glow text-sm cursor-default transition-colors hover:bg-primary hover:text-secondary">Leadership</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projects" class="py-16 max-w-5xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-md drop-shadow-[0_0_10px_#00d8ff44] transition-all duration-300 hover:-translate-y-2 hover:drop-shadow-[0_0_20px_#00d8ffaa] cursor-pointer" tabindex="0">
+                <img class="w-full h-40 object-cover border-b-2 border-primary" src="img/yc.png" alt="YouTube Clone Image" />
+                <div class="p-4 flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-primary mb-2">YouTube Clone</h3>
+                    <p class="text-text-gray text-sm flex-grow">Made a website where users can upload, search, and watch videos. Learned full stack development and how to create an interactive user interface.</p>
+                    <a href="#" class="mt-4 font-semibold text-primary self-start border-b border-transparent transition-colors hover:border-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-md drop-shadow-[0_0_10px_#00d8ff44] transition-all duration-300 hover:-translate-y-2 hover:drop-shadow-[0_0_20px_#00d8ffaa] cursor-pointer" tabindex="0">
+                <img class="w-full h-40 object-cover border-b-2 border-primary" src="img/sc.png" alt="Spotify Clone Image" />
+                <div class="p-4 flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-primary mb-2">Spotify Clone</h3>
+                    <p class="text-text-gray text-sm flex-grow">Created a Spotify clone where users can listen to online music as well as downloaded music on their device.</p>
+                    <a href="#" class="mt-4 font-semibold text-primary self-start border-b border-transparent transition-colors hover:border-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="bg-secondary rounded-xl overflow-hidden shadow-md drop-shadow-[0_0_10px_#00d8ff44] transition-all duration-300 hover:-translate-y-2 hover:drop-shadow-[0_0_20px_#00d8ffaa] cursor-pointer" tabindex="0">
+                <img class="w-full h-40 object-cover border-b-2 border-primary" src="img/fa.png" alt=" Food Delivery App Image" />
+                <div class="p-4 flex flex-col h-full">
+                    <h3 class="text-xl font-bold text-primary mb-2">Food Delivery App</h3>
+                    <p class="text-text-gray text-sm flex-grow">Created a food delivery app where users can see restaurants, order food, and track their delivery. Focused on making the app easy to use and real-time features.</p>
+                    <a href="#" class="mt-4 font-semibold text-primary self-start border-b border-transparent transition-colors hover:border-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 max-w-5xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left">Education</h2>
+        <div class="text-text-gray">
+            <div class="mb-4">
+                <h4 class="text-xl font-bold text-primary mb-1">Bachelor of Technology (B. Tech) in Computer Science Engineering</h4>
+                <p>Galgotias University, Greater Noida</p>
+                <p>Expected Graduation: 2027</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-primary mb-1">Class XII (Senior Secondary, CBSE)</h4>
+                <p>Kendriya Vidyalaya, Sadiq Nagar, New Delhi</p>
+                <p>Graduated: 2022</p>
+            </div>
+            <br>
+            <div>
+                <h4 class="text-xl font-bold text-primary mb-1">Class X (High School, CBSE)</h4>
+                <p>Balvantray Mehta Vidya Bhawan (ASMA), GK-II, New Delhi</p>
+                <p>Graduated: 2020</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-16 max-w-5xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left">Certifications</h2>
+        <div class="text-text-gray relative pl-6 border-l-4 border-primary ml-4">
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">Java Programming</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">Python Programming</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">Database Management System</h4>
+                <span class="text-sm text-gray-400">ORACLE</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">Data Science & Analytics</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">Data Visualisation using Python</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">100 Days of Python Expert |</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+            <div class="relative mb-6 pl-4">
+                <div class="absolute -left-3 top-1 w-4 h-4 bg-primary rounded-full shadow-md drop-shadow-[0_0_8px_#00d8ff88] transition-colors hover:bg-cyan-600 hover:drop-shadow-[0_0_12px_#00a8ccaa]"></div>
+                <h4 class="text-xl font-bold text-primary mb-1">100 Days of Python Advance</h4>
+                <span class="text-sm text-gray-400">GUVI</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="py-16 max-w-5xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left">Achievements</h2>
+        <ul class="list-none p-0">
+            <li class="bg-secondary mb-4 p-4 rounded-lg shadow-md drop-shadow-[0_0_8px_#00d8ff44] transition-transform duration-300 hover:translate-x-3 hover:drop-shadow-[0_0_16px_#00d8ffaa]">Worked as a Frontend Developer Intern at Myna Seva Foundation, gaining practical experience in building user-friendly web applications.</li>
+            <li class="bg-secondary mb-4 p-4 rounded-lg shadow-md drop-shadow-[0_0_8px_#00d8ff44] transition-transform duration-300 hover:translate-x-3 hover:drop-shadow-[0_0_16px_#00d8ffaa]">Participated in AI/ML workshop at IIT Delhi – collaborated on AI development and its working.</li>
+            <li class="bg-secondary mb-4 p-4 rounded-lg shadow-md drop-shadow-[0_0_8px_#00d8ff44] transition-transform duration-300 hover:translate-x-3 hover:drop-shadow-[0_0_16px_#00d8ffaa]">Participated in Young Minds, organised by IEEE Galgotias University Student Branch.</li>
+        
+        </ul>
+
+    </section>
+
+    <section id="contact" class="py-16 max-w-5xl mx-auto text-center px-6">
+        <h2 class="text-4xl font-bold text-white mb-8">Contact Me</h2>
+        <div class="mb-8 text-lg text-text-gray">
+            <p>Email: <a href="mailto:yadu3904@gmail.com" class="text-primary mx-2">yadu3904@gmail.com</a></p>
+            <p>LinkedIn: <a href="www.linkedin.com/in/shantanu-yadav-896a4b298" target="_blank" class="text-primary mx-2">Shantanu Yadav</a></p>
+            <p>GitHub: <a href="https://github.com/silenthacker404" target="_blank" class="text-primary mx-2">silenthacker404/Shantanu Yadav</a></p>
+        </div>
+        <form action="#" method="post" class="max-w-md mx-auto flex flex-col gap-4">
+            <input type="text" name="name" placeholder="Your Name" required class="py-3 px-4 rounded-lg border-none text-lg bg-[#222233] text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary" />
+            <input type="email" name="email" placeholder="Your Email" required class="py-3 px-4 rounded-lg border-none text-lg bg-[#222233] text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary" />
+            <textarea name="message" rows="5" placeholder="Your Message" required class="py-3 px-4 rounded-lg border-none text-lg resize-y bg-[#222233] text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+            <button type="submit" class="self-center w-40 font-bold transition-transform duration-200 bg-primary text-secondary rounded-full border-none py-3 px-6 hover:animate-jiggle hover:shadow-lg hover:shadow-primary">Send Message</button>
+        </form>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
